@@ -1,8 +1,25 @@
+import { useLayoutEffect } from "react";
 import { View, Text } from "react-native";
 
 import SubTitle from "../components/Details/Subtitle";
+import IconButton from "../components/IconButton";
 
-function RecentExpensesScreen() {
+function RecentExpensesScreen({navigation}) {
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => {
+                return (<IconButton
+                    name='add'
+                    size={25}
+                    color='black'
+                    onPress={() => navigation.navigate('AddExpensesScreen') } />
+                );
+            },
+        }
+        );
+    }, [navigation]);
+
     return (
         <View>
             <SubTitle
