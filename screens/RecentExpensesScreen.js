@@ -2,7 +2,7 @@ import { View , Text } from "react-native";
 
 function RecentExpensesScreen() {
     return (
-        <Text>This is the Recent Expenses Screen</Text>
+        <Text>No expenses registered fot the last 7 days.</Text>
     )
 } 
 
