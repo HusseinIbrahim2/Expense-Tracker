@@ -1,9 +1,16 @@
-import { View , Text } from "react-native";
+import { View, Text } from "react-native";
+
+import SubTitle from "../components/Details/Subtitle";
 
 function AllExpensesScreen() {
     return (
-        <Text>This is the All Expenses Screen</Text>
+        <View>
+            <SubTitle
+                text='Total'
+                number='4500'
+            />
+        </View>
     )
-} 
+}
 
 export default AllExpensesScreen;
