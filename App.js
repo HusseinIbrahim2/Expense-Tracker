@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 function MyNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{title: 'Recent Expenses'}} />
+      <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', }} />
       <Stack.Screen name="AddExpenses" component={AddExpensesScreen} />
     </Stack.Navigator>
   )

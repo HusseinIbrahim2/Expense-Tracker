@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import SubTitle from "../components/Details/Subtitle";
 import IconButton from "../components/IconButton";
 
-function RecentExpensesScreen({navigation}) {
+function RecentExpensesScreen({ navigation }) {
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -13,7 +13,7 @@ function RecentExpensesScreen({navigation}) {
                     name='add'
                     size={25}
                     color='black'
-                    onPress={() => navigation.navigate('AddExpensesScreen') } />
+                    onPress={() => navigation.navigate('AddExpenses')} />
                 );
             },
         }
