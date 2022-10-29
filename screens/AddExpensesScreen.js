@@ -1,4 +1,5 @@
 import { Text, StyleSheet, View } from "react-native";
+import PrimaryButton from "../components/Details/PrimaryButton";
 
 import InputText from "../components/Details/InputText";
 
@@ -8,11 +9,19 @@ function AddExpensesScreen() {
             <View style={styles.outerContainer}>
                 <View style={styles.itemContainer}>
                     <Text style={styles.textStyle}>Name:</Text>
-                    <InputText placeholder='name'  />
+                    <InputText placeholder='name' />
                 </View>
                 <View style={styles.itemContainer}>
                     <Text style={styles.textStyle} >Price:</Text>
-                    <InputText placeholder='price' keyboardType="numeric"/>
+                    <InputText placeholder='price' keyboardType="numeric" />
+                </View>
+            </View>
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Cancel</PrimaryButton>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Add</PrimaryButton>
                 </View>
             </View>
         </View>
@@ -23,11 +32,11 @@ const styles = StyleSheet.create({
         flex: 1
     },
     outerContainer: {
-        marginLeft: 10,
+        marginHorizontal: 10,
         marginTop: 40,
         borderBottomColor: 'black',
-        borderBottomWidth:3,
-        paddingBottom: 10,
+        borderBottomWidth: 3,
+        paddingBottom: 30,
     },
     itemContainer: {
         flexDirection: 'row',
@@ -38,6 +47,12 @@ const styles = StyleSheet.create({
     textStyle: {
         marginRight: 10,
         fontSize: 20,
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+    },
+    buttonContainer: {
+        flex: 1
     }
 })
 
