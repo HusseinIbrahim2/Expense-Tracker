@@ -9,13 +9,13 @@ import RecentExpensesScreen from './screens/RecentExpensesScreen';
 import AddExpensesScreen from './screens/AddExpensesScreen';
 import IconButton from './components/Details/IconButton';
 
-const Tab = createBottomTabNavigator();
+const BottomTabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function MyNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', }} />
+      <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
       <Stack.Screen name="AddExpenses" component={AddExpensesScreen} />
     </Stack.Navigator>
   )
@@ -26,29 +26,36 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <Tab.Navigator
+        <BottomTabs.Navigator
           screenOptions={{
             tabBarStyle: { height: 70 },
+            tabBarStyle: { backgroundColor: '#ba8115' },
+
           }}
-          tab
+          
         >
-          <Tab.Screen
+          <BottomTabs.Screen
             name="TabExpenses"
             component={MyNavigator}
             options={{
-              tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? 'purple' : 'red'} />,
+              tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? '#080020' : 'white'} />,
               headerShown: false,
-              tabBarLabel : 'Recent'
+              tabBarLabel: 'Recent',
+              tabBarActiveTintColor: '#080020',
+              tabBarInactiveTintColor: 'white'
             }} />
-          <Tab.Screen
+          <BottomTabs.Screen
             name="AllExpenses"
             component={AllExpensesScreen}
             options={{
-              tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? 'purple' : 'red'} />,
-              tabBarLabel : 'All'              
+              tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? '#080020' : 'white'} />,
+              tabBarLabel: 'All',
+              headerStyle: { backgroundColor: '#ba8115' },
+              tabBarActiveTintColor: '#080020',
+              tabBarInactiveTintColor: 'white'
             }}
           />
-        </Tab.Navigator>
+        </BottomTabs.Navigator>
       </NavigationContainer>
     </>
   );
