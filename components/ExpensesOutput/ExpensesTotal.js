@@ -8,7 +8,7 @@ function ExpensesTotal({ period, expenses }) {
     return (
         <View>
             <Text>{period}</Text>
-            <Text>${expensesSum}</Text>
+            <Text>${expensesSum.toFixed(2)}</Text>
         </View>
     )
 }
