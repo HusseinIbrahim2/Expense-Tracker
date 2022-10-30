@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { View, Text } from "react-native";
 
 import SubTitle from "../components/Details/Subtitle";
-import IconButton from "../components/IconButton";
+import IconButton from "../components/Details/IconButton";
 
 function RecentExpensesScreen({ navigation }) {
 
@@ -23,7 +23,7 @@ function RecentExpensesScreen({ navigation }) {
     return (
         <View>
             <SubTitle
-                text='Last 7 days'
+                text='Last 7 days'  
                 number='48.2'
             />
         </View>

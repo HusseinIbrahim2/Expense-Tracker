@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AllExpensesScreen from './screens/AllExpensesScreen';
 import RecentExpensesScreen from './screens/RecentExpensesScreen';
 import AddExpensesScreen from './screens/AddExpensesScreen';
-import IconButton from './components/IconButton';
+import IconButton from './components/Details/IconButton';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -38,12 +38,14 @@ export default function App() {
             options={{
               tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? 'purple' : 'red'} />,
               headerShown: false,
+              tabBarLabel : 'Recent'
             }} />
           <Tab.Screen
             name="AllExpenses"
             component={AllExpensesScreen}
             options={{
-              tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? 'purple' : 'red'} />
+              tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? 'purple' : 'red'} />,
+              tabBarLabel : 'All'              
             }}
           />
         </Tab.Navigator>
