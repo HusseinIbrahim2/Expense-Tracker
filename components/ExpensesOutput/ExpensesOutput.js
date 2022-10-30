@@ -1,10 +1,10 @@
-import ExpensesLast7Days from "./ExpensesLast7Days";
+import ExpensesTotal from "./ExpensesTotal";
 import ExpensesList from "./ExpensesList";
 
-function ExpensesOutput() {
+function ExpensesOutput({ expensesPeriod, totalExpenses }) {
     <>
-    <ExpensesLast7Days />
-    <ExpensesList />
+        <ExpensesTotal period={expensesPeriod} expenses={totalExpenses} />
+        <ExpensesList />
     </>
 }
 
