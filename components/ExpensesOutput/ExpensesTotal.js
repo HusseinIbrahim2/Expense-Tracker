@@ -6,7 +6,7 @@ function ExpensesTotal({ period, expenses }) {
     }, 0);
 
     return (
-        <View style={styles.outerontainer}>
+        <View style={styles.outerContainer}>
             <View style={styles.innerContainer}>
                 <Text>{period}</Text>
                 <Text>€{expensesSum.toFixed(2)}</Text>
@@ -15,8 +15,8 @@ function ExpensesTotal({ period, expenses }) {
     )
 }
 const styles = StyleSheet.create({
-    outerontainer: {
-        marginTop: 20,
+    outerContainer: {
+        marginVertical: 25,
         margin: 15,
         borderRadius: 5,
         backgroundColor: 'lightgreen'

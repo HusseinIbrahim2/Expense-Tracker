@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { View, Text } from "react-native";
 
-import SubTitle from "../components/Details/Subtitle";
 import IconButton from "../components/Details/IconButton";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
