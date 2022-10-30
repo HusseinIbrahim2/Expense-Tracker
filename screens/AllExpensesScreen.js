@@ -1,15 +1,12 @@
 import { View, Text } from "react-native";
 
-import SubTitle from "../components/Details/Subtitle";
+import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
 function AllExpensesScreen() {
     return (
-        <View>
-            <SubTitle
-                text='Total'
-                number='4500'
-            />
-        </View>
+        <>
+        <ExpensesOutput expensesPeriod="Total" />
+        </>
     )
 }
 

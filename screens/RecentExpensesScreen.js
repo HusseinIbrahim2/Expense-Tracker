@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 
 import SubTitle from "../components/Details/Subtitle";
 import IconButton from "../components/Details/IconButton";
+import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
 function RecentExpensesScreen({ navigation }) {
 
@@ -21,12 +22,9 @@ function RecentExpensesScreen({ navigation }) {
     }, [navigation]);
 
     return (
-        <View>
-            <SubTitle
-                text='Last 7 days'  
-                number='48.2'
-            />
-        </View>
+        <>
+       <ExpensesOutput expensesPeriod="Last 7 days" />
+        </>
     )
 }
 
