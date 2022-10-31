@@ -12,14 +12,21 @@ import IconButton from './components/Details/IconButton';
 const BottomTabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function MyNavigator() {
+function MyNavigator1() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} />
+      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
     </Stack.Navigator>
   )
-
+}
+function MyNavigator2() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="AllExpenses" component={AllExpensesScreen} options={{ title: 'All Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
+      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
+    </Stack.Navigator>
+  )
 }
 
 export default function App() {
@@ -30,29 +37,29 @@ export default function App() {
           screenOptions={{
             tabBarStyle: { height: 70 },
             tabBarStyle: { backgroundColor: '#ba8115' },
-
+            headerStyle: { backgroundColor: '#ba8115' },
           }}
-          
+
         >
           <BottomTabs.Screen
-            name="TabExpenses"
-            component={MyNavigator}
+            name="TabRecentExpenses"
+            component={MyNavigator1}
             options={{
               tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? '#080020' : 'white'} />,
-              headerShown: false,
               tabBarLabel: 'Recent',
               tabBarActiveTintColor: '#080020',
-              tabBarInactiveTintColor: 'white'
+              tabBarInactiveTintColor: 'white',
+              headerShown: false,
             }} />
           <BottomTabs.Screen
-            name="AllExpenses"
-            component={AllExpensesScreen}
+            name="TabAllExpenses"
+            component={MyNavigator2}
             options={{
               tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? '#080020' : 'white'} />,
               tabBarLabel: 'All',
-              headerStyle: { backgroundColor: '#ba8115' },
               tabBarActiveTintColor: '#080020',
-              tabBarInactiveTintColor: 'white'
+              tabBarInactiveTintColor: 'white',
+              headerShown: false,
             }}
           />
         </BottomTabs.Navigator>

@@ -29,7 +29,8 @@ function ManageExpensesScreen() {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#080020',
     },
     outerContainer: {
         marginHorizontal: 10,
