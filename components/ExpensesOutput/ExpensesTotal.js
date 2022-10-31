@@ -16,8 +16,9 @@ function ExpensesTotal({ period, expenses }) {
 }
 const styles = StyleSheet.create({
     outerContainer: {
-        marginVertical: 25,
-        margin: 15,
+        marginTop: 20,
+        marginBottom: 4,
+        marginHorizontal: 25,
         borderRadius: 5,
         backgroundColor: 'lightgreen'
     },

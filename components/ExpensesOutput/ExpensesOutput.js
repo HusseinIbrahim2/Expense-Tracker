@@ -13,7 +13,7 @@ function ExpensesOutput({ expensesPeriod, totalExpenses }) {
         },
         {
             id: 'e2',
-            description: "J.R.R.Tolkeins books ",
+            description: "J.R.R.Tolkeins books  ",
             amount: 850,
             date: new Date("2018-02-09")
         },
@@ -26,7 +26,7 @@ function ExpensesOutput({ expensesPeriod, totalExpenses }) {
         {
             id: 'e4',
             description: "Iphone 14",
-            amount: 1399,
+            amount: 2399,
             date: new Date("2022-10-20")
         },
         {
@@ -35,7 +35,6 @@ function ExpensesOutput({ expensesPeriod, totalExpenses }) {
             amount: 30,
             date: new Date("2022-10-12")
         },
-
     ];
     return (
         <View style={styles.container}>
@@ -49,7 +48,8 @@ function ExpensesOutput({ expensesPeriod, totalExpenses }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#080020'
+        backgroundColor: '#080020',
+
     },
 })
 
