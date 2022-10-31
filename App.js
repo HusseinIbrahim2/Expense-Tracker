@@ -16,7 +16,7 @@ function MyNavigator1() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
+      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' }, presentation: 'modal'}} />
     </Stack.Navigator>
   )
 }
@@ -24,7 +24,7 @@ function MyNavigator2() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="AllExpenses" component={AllExpensesScreen} options={{ title: 'All Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
+      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' }, presentation: 'modal' }} />
     </Stack.Navigator>
   )
 }

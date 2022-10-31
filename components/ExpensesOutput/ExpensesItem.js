@@ -4,16 +4,16 @@ import { useNavigation } from "@react-navigation/native";
 
 import { getDate } from "../../util/date";
 
-function ExpensesItem({ description, amount, date }) {
+function ExpensesItem({ description, amount, date, id }) {
 
     const navigation = useNavigation();
 
-    function pressedFunctionHandler() {
-        navigation.navigate('ManageExpenses')
+    function expensesPressHandler() {
+        navigation.navigate('ManageExpenses', { expenseId: id })
     }
 
     return (
-        <Pressable onPress={pressedFunctionHandler} style={({ pressed }) => pressed && styles.pressed} >
+        <Pressable onPress={expensesPressHandler} style={({ pressed }) => pressed && styles.pressed} >
             <View style={styles.outerContainer}>
                 <View>
                     <Text style={styles.descriptionText}>

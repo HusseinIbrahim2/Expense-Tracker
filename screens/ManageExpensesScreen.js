@@ -2,8 +2,20 @@ import { Text, StyleSheet, View } from "react-native";
 import PrimaryButton from "../components/Details/PrimaryButton";
 
 import InputText from "../components/Details/InputText";
+import { useLayoutEffect } from "react";
 
-function ManageExpensesScreen() {
+function ManageExpensesScreen({ route, navigation }) {
+
+    const editedExpenseId = route.params?.expenseId;
+    const isEditedId = !!editedExpenseId;
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: isEditedId ? 'Edit Expenses' : 'Add EXpenses'
+        })
+    }, [navigation , isEditedId])
+
+
     return (
         <View style={styles.container}>
             <View style={styles.outerContainer}>
