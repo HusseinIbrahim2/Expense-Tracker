@@ -13,7 +13,7 @@ function RecentExpensesScreen({ navigation }) {
                     name='add'
                     size={25}
                     color='black'
-                    onPress={() => navigation.navigate('AddExpenses')} />
+                    onPress={() => navigation.navigate('ManageExpenses')} />
                 );
             },
         }

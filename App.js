@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AllExpensesScreen from './screens/AllExpensesScreen';
 import RecentExpensesScreen from './screens/RecentExpensesScreen';
-import AddExpensesScreen from './screens/AddExpensesScreen';
+import ManageExpensesScreen from './screens/ManageExpensesScreen';
 import IconButton from './components/Details/IconButton';
 
 const BottomTabs = createBottomTabNavigator();
@@ -16,7 +16,7 @@ function MyNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="AddExpenses" component={AddExpensesScreen} />
+      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} />
     </Stack.Navigator>
   )
 
