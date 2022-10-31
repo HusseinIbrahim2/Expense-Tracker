@@ -15,16 +15,17 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         marginBottom: 30,
         overflow: 'hidden',
+        marginHorizontal:25,
     },
     buttonInnerContainer: {
         backgroundColor: 'grey',
-        paddingVertical: 10,
-        paddingHorizontal: 26,
+        paddingVertical: 8,
+        paddingHorizontal: 3,
     },
     buttonText: {
         color: 'black',
         textAlign: 'center',
-        fontSize: 18,
+        fontSize: 17,
     },
 })
 export default PrimaryButton;

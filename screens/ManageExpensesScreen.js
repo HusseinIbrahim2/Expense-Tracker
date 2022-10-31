@@ -1,8 +1,10 @@
 import { Text, StyleSheet, View } from "react-native";
-import PrimaryButton from "../components/Details/PrimaryButton";
-
-import InputText from "../components/Details/InputText";
 import { useLayoutEffect } from "react";
+
+import PrimaryButton from "../components/Details/PrimaryButton";
+import InputText from "../components/Details/InputText";
+import IconButton from "../components/Details/IconButton";
+
 
 function ManageExpensesScreen({ route, navigation }) {
 
@@ -13,12 +15,12 @@ function ManageExpensesScreen({ route, navigation }) {
         navigation.setOptions({
             title: isEditedId ? 'Edit Expenses' : 'Add EXpenses'
         })
-    }, [navigation , isEditedId])
+    }, [navigation, isEditedId])
 
 
     return (
         <View style={styles.container}>
-            <View style={styles.outerContainer}>
+            < View style={styles.outerContainer} >
                 <View style={styles.itemContainer}>
                     <Text style={styles.textStyle}>Name:</Text>
                     <InputText placeholder='name' />
@@ -27,22 +29,30 @@ function ManageExpensesScreen({ route, navigation }) {
                     <Text style={styles.textStyle} >Price:</Text>
                     <InputText placeholder='price' keyboardType="numeric" />
                 </View>
-            </View>
+            </View >
+
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton>Cancel</PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton>Add</PrimaryButton>
+                   { isEditedId ?  <PrimaryButton>Update</PrimaryButton> : <PrimaryButton>Add</PrimaryButton>}
                 </View>
             </View>
-        </View>
+            <View style={styles.iconButtonContainer}>
+                {isEditedId && <IconButton name='trash'
+                    size={35}
+                    color='black'
+                    /*onPress={() => }*/ />}
+            </View>
+        </View >
     )
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#080020',
+        backgroundColor: '#white',
+        marginHorizontal: 25,
     },
     outerContainer: {
         marginHorizontal: 10,
@@ -66,6 +76,9 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flex: 1
+    },
+    iconButtonContainer: {
+        alignItems : 'center',
     }
 })
 
