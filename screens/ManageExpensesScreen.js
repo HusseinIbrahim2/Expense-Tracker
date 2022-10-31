@@ -3,7 +3,7 @@ import PrimaryButton from "../components/Details/PrimaryButton";
 
 import InputText from "../components/Details/InputText";
 
-function AddExpensesScreen() {
+function ManageExpensesScreen() {
     return (
         <View style={styles.container}>
             <View style={styles.outerContainer}>
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AddExpensesScreen;
+export default ManageExpensesScreen;
