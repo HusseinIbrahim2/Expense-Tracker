@@ -8,6 +8,7 @@ import AllExpensesScreen from './screens/AllExpensesScreen';
 import RecentExpensesScreen from './screens/RecentExpensesScreen';
 import ManageExpensesScreen from './screens/ManageExpensesScreen';
 import IconButton from './components/Details/IconButton';
+import ExpensesContextProvider from './store/Expenses-context';
 
 const BottomTabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -15,16 +16,42 @@ const Stack = createNativeStackNavigator();
 function MyNavigator1() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="RecentExpenses" component={RecentExpensesScreen} options={{ title: 'Recent Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' }, presentation: 'modal'}} />
+      <Stack.Screen
+        name="RecentExpenses"
+        component={RecentExpensesScreen}
+        options={{
+          title: 'Recent Expenses',
+          headerStyle: { backgroundColor: '#ba8115' }
+        }}
+      />
+      <Stack.Screen
+        name="ManageExpenses"
+        component={ManageExpensesScreen}
+        options={{
+          title: 'Add Expenses',
+          headerStyle: { backgroundColor: '#ba8115' },
+          presentation: 'modal'
+        }} />
     </Stack.Navigator>
   )
 }
 function MyNavigator2() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="AllExpenses" component={AllExpensesScreen} options={{ title: 'All Expenses', headerStyle: { backgroundColor: '#ba8115' } }} />
-      <Stack.Screen name="ManageExpenses" component={ManageExpensesScreen} options={{ title: 'Add Expenses', headerStyle: { backgroundColor: '#ba8115' }, presentation: 'modal' }} />
+      <Stack.Screen name="AllExpenses"
+        component={AllExpensesScreen}
+        options={{
+          title: 'All Expenses',
+          headerStyle: { backgroundColor: '#ba8115' }
+        }} />
+      <Stack.Screen
+        name="ManageExpenses"
+        component={ManageExpensesScreen}
+        options={{
+          title: 'Add Expenses',
+          headerStyle: { backgroundColor: '#ba8115' },
+          presentation: 'modal'
+        }} />
     </Stack.Navigator>
   )
 }
@@ -32,38 +59,41 @@ function MyNavigator2() {
 export default function App() {
   return (
     <>
-      <NavigationContainer>
-        <BottomTabs.Navigator
-          screenOptions={{
-            tabBarStyle: { height: 70 },
-            tabBarStyle: { backgroundColor: '#ba8115' },
-            headerStyle: { backgroundColor: '#ba8115' },
-          }}
-
-        >
-          <BottomTabs.Screen
-            name="TabRecentExpenses"
-            component={MyNavigator1}
-            options={{
-              tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? '#080020' : 'white'} />,
-              tabBarLabel: 'Recent',
-              tabBarActiveTintColor: '#080020',
-              tabBarInactiveTintColor: 'white',
-              headerShown: false,
-            }} />
-          <BottomTabs.Screen
-            name="TabAllExpenses"
-            component={MyNavigator2}
-            options={{
-              tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? '#080020' : 'white'} />,
-              tabBarLabel: 'All',
-              tabBarActiveTintColor: '#080020',
-              tabBarInactiveTintColor: 'white',
-              headerShown: false,
+      <StatusBar style='auto' />
+      <ExpensesContextProvider>
+        <NavigationContainer>
+          <BottomTabs.Navigator
+            screenOptions={{
+              tabBarStyle: { height: 70 },
+              tabBarStyle: { backgroundColor: '#ba8115' },
+              headerStyle: { backgroundColor: '#ba8115' },
             }}
-          />
-        </BottomTabs.Navigator>
-      </NavigationContainer>
+
+          >
+            <BottomTabs.Screen
+              name="TabRecentExpenses"
+              component={MyNavigator1}
+              options={{
+                tabBarIcon: ({ focused, size }) => <IconButton name='ios-hourglass-outline' size={size} color={focused ? '#080020' : 'white'} />,
+                tabBarLabel: 'Recent',
+                tabBarActiveTintColor: '#080020',
+                tabBarInactiveTintColor: 'white',
+                headerShown: false,
+              }} />
+            <BottomTabs.Screen
+              name="TabAllExpenses"
+              component={MyNavigator2}
+              options={{
+                tabBarIcon: ({ focused, size }) => <IconButton name='calendar' size={size} color={focused ? '#080020' : 'white'} />,
+                tabBarLabel: 'All',
+                tabBarActiveTintColor: '#080020',
+                tabBarInactiveTintColor: 'white',
+                headerShown: false,
+              }}
+            />
+          </BottomTabs.Navigator>
+        </NavigationContainer>
+      </ExpensesContextProvider>
     </>
   );
 }
