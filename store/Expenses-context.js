@@ -80,7 +80,7 @@ function ExpensesContextProvider({ children }) {
     };
 
     return (
-        <Managed.Provider value={value} >{children}</Managed.Provider>
+        <ExpensesContext.Provider value={value} >{children}</ExpensesContext.Provider>
     )
 }
 export default ExpensesContextProvider;
