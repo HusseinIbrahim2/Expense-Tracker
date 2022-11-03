@@ -31,6 +31,12 @@ const Expenses_Data = [
         amount: 30,
         date: new Date("2022-10-12")
     },
+    {
+        id: 'e6',
+        description: "chair",
+        amount: 30,
+        date: new Date("2022-11-03")
+    },
 ];
 
 export const ExpensesContext = createContext({

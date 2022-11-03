@@ -1,11 +1,11 @@
 export function getDate(date) {
     return (
-     `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
- )
+        `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+    )
 }
 
-export function getDateMinusDays(date , days ) {
+export function getDateMinusDays(date, days) {
     return (
-        new Date(date.getFullYear() , date.getMonth() ,days.getDate() - days )
+        new Date(date.getFullYear(), date.getMonth(), date.getDate() - days)
     )
 }
