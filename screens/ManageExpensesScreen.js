@@ -20,23 +20,29 @@ function ManageExpensesScreen({ route, navigation }) {
     }, [navigation, isEdited])
 
     function deleteExpense() {
-        navigation.goBack()
         expensesCtx.deleteExpense(editedExpenseId)
+        navigation.goBack()
     }
     function cancelManage() {
         navigation.goBack()
     }
     function confirmHandler() {
-        if (isEdited) {
+        if (isEdited == true) {
             expensesCtx.updateExpense(
                 editedExpenseId,
-                /* 
-                Data
-                */
+                {
+                    description: 'Testtttt',
+                    amount: 715,
+                    date: new Date('2019-08-19')
+                }
             )
         }
         else {
-            expensesCtx.addExpense()
+            expensesCtx.addExpense({
+                description: 'Tessttt2',
+                amount: 1999,
+                date: new Date('2015-05-09')
+            })
         }
         navigation.goBack()
     }
@@ -63,10 +69,13 @@ function ManageExpensesScreen({ route, navigation }) {
                 </View>
             </View>
             <View style={styles.iconButtonContainer}>
-                {isEdited && <IconButton name='trash'
-                    size={35}
-                    color='black'
-                    onPress={deleteExpense} />}
+                {isEdited &&
+                    <IconButton
+                        name='trash'
+                        size={35}
+                        color='black'
+                        onPress={deleteExpense} />
+                }
             </View>
         </View >
     )
