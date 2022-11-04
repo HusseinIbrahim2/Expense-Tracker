@@ -59,7 +59,7 @@ function ExpensesReducer(state, action) {
             const updateItem = { ...updatableExpense, ...action.payload.data };
             const updatedExpenses = [...state];
             updatedExpenses[updatedExpenseIndex] = updateItem;
-            return updatableExpense;
+            return updatedExpenses;
         default:
             return state;
     }
@@ -75,7 +75,7 @@ function ExpensesContextProvider({ children }) {
         dispatch({ type: 'DELETE', payload: id })
     }
     function updateExpense(id, expensesData) {
-        dispatch({ type: 'UPDATE', id: id, payload: expensesData })
+        dispatch({ type: 'UPDATE', payload: { id: id, data: expensesData } })
     }
 
     const value = {

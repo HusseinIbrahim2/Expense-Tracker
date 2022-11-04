@@ -1,5 +1,4 @@
 import { useContext, useLayoutEffect } from "react";
-import { View, Text } from "react-native";
 
 import IconButton from "../components/Details/IconButton";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
@@ -22,13 +21,11 @@ function RecentExpensesScreen({ navigation }) {
         );
     }, [navigation]);
 
-    const expensesCtx = useContext(ExpensesContext)
-    const recentExpenses = expensesCtx.expenses.filter((expenses) => {
+    const expensesCtx = useContext(ExpensesContext);
+    const recentExpenses = expensesCtx.expenses.filter((expense) => {
         const today = new Date();
         const Last7DaysExpenses = getDateMinusDays(today, 7)
-        return (
-            expenses.date > Last7DaysExpenses
-        )
+        return expense.date >= Last7DaysExpenses && expense.date <= today;
     })
 
     return (

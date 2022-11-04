@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 
-function ExpensesTotal({ period, expenses }) {
+function ExpensesTotal({ expenses, period }) {
     const expensesSum = expenses.reduce((sum, expense) => {
-        return sum + expense.amount
+      return sum + expense.amount;
     }, 0);
 
     return (
