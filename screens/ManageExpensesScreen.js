@@ -21,8 +21,10 @@ function ManageExpensesScreen({ route, navigation }) {
 
     function deleteExpense() {
         navigation.goBack()
-        
         expensesCtx.deleteExpense(editedExpenseId)
+    }
+    function cancelManage() {
+        navigation.goBack()
     }
 
     return (
@@ -40,10 +42,10 @@ function ManageExpensesScreen({ route, navigation }) {
 
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton>Cancel</PrimaryButton>
+                    <PrimaryButton onPressing={cancelManage} >Cancel</PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
-                   { isEditedId ?  <PrimaryButton>Update</PrimaryButton> : <PrimaryButton>Add</PrimaryButton>}
+                    {isEditedId ? <PrimaryButton>Update</PrimaryButton> : <PrimaryButton>Add</PrimaryButton>}
                 </View>
             </View>
             <View style={styles.iconButtonContainer}>
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     iconButtonContainer: {
-        alignItems : 'center',
+        alignItems: 'center',
     }
 })
 
