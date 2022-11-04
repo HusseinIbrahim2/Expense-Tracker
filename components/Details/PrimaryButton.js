@@ -11,11 +11,11 @@ function PrimaryButton({ onPressing, children }) {
 }
 const styles = StyleSheet.create({
     buttonOuterContainer: {
-        margin:10,
+        margin: 10,
         borderRadius: 12,
         marginBottom: 30,
         overflow: 'hidden',
-        marginHorizontal:25,
+        marginHorizontal: 25,
     },
     buttonInnerContainer: {
         backgroundColor: 'grey',

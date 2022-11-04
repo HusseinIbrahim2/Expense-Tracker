@@ -11,19 +11,33 @@ function ManageExpensesScreen({ route, navigation }) {
     const expensesCtx = useContext(ExpensesContext)
 
     const editedExpenseId = route.params?.expenseId;
-    const isEditedId = !!editedExpenseId;
+    const isEdited = !!editedExpenseId;
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: isEditedId ? 'Edit Expenses' : 'Add EXpenses'
+            title: isEdited ? 'Edit Expenses' : 'Add EXpenses'
         })
-    }, [navigation, isEditedId])
+    }, [navigation, isEdited])
 
     function deleteExpense() {
         navigation.goBack()
         expensesCtx.deleteExpense(editedExpenseId)
     }
     function cancelManage() {
+        navigation.goBack()
+    }
+    function confirmHandler() {
+        if (isEdited) {
+            expensesCtx.updateExpense(
+                editedExpenseId,
+                /* 
+                Data
+                */
+            )
+        }
+        else {
+            expensesCtx.addExpense()
+        }
         navigation.goBack()
     }
 
@@ -45,11 +59,11 @@ function ManageExpensesScreen({ route, navigation }) {
                     <PrimaryButton onPressing={cancelManage} >Cancel</PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
-                    {isEditedId ? <PrimaryButton>Update</PrimaryButton> : <PrimaryButton>Add</PrimaryButton>}
+                    <PrimaryButton onPressing={confirmHandler} >{isEdited ? 'Update' : 'Add'}</PrimaryButton>
                 </View>
             </View>
             <View style={styles.iconButtonContainer}>
-                {isEditedId && <IconButton name='trash'
+                {isEdited && <IconButton name='trash'
                     size={35}
                     color='black'
                     onPress={deleteExpense} />}
