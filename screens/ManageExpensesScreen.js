@@ -1,12 +1,14 @@
 import { Text, StyleSheet, View } from "react-native";
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 
 import PrimaryButton from "../components/Details/PrimaryButton";
 import InputText from "../components/Details/InputText";
 import IconButton from "../components/Details/IconButton";
-
+import { ExpensesContext } from "../store/Expenses-context";
 
 function ManageExpensesScreen({ route, navigation }) {
+
+    const expensesCtx = useContext(ExpensesContext)
 
     const editedExpenseId = route.params?.expenseId;
     const isEditedId = !!editedExpenseId;
@@ -17,6 +19,11 @@ function ManageExpensesScreen({ route, navigation }) {
         })
     }, [navigation, isEditedId])
 
+    function deleteExpense() {
+        navigation.goBack()
+        
+        expensesCtx.deleteExpense(editedExpenseId)
+    }
 
     return (
         <View style={styles.container}>
@@ -43,7 +50,7 @@ function ManageExpensesScreen({ route, navigation }) {
                 {isEditedId && <IconButton name='trash'
                     size={35}
                     color='black'
-                    /*onPress={() => }*/ />}
+                    onPress={deleteExpense} />}
             </View>
         </View >
     )
